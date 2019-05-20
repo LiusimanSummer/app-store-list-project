@@ -49,7 +49,7 @@ class Home extends React.Component {
     }
 
     updateDimensions = () => {
-        let fixedElementHeight = document.getElementById("container-fixed").offsetHeight;
+        let fixedElementHeight = document.getElementById("container-fixed").clientHeight;
         this.setState({ verticalListHeight: window.innerHeight - fixedElementHeight });
     }
 

@@ -15,7 +15,7 @@ export default class HorizontalList extends React.Component {
 
     render_list() {
         return (this.state.data.map((item, index) => {
-            return <div class="item-container">
+            return <div key={"horizontal-item" + index}  class="item-container">
                 <img alt="icon" class="icon" src={item.app_icon} />
                 <div class="name">{item.app_name}</div>
                 <div class="category">{item.category}</div>

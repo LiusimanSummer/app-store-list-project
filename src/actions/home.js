@@ -65,7 +65,6 @@ export const getPopular10 = () => {
 
 export const getAppInfo = (array) => {
     return async (dispatch, getState) => {
-        //let array = getState().home.oringinalListOfTop100;
         var options = {
             method: 'GET',
             url: ""
@@ -73,7 +72,7 @@ export const getAppInfo = (array) => {
         let arrayResult = [];
         for (let i = 0; i < array.length; i++) {
             let app = array[i];
-            if (app.rating == -1 || app.user_count == -1) {
+            if (app.rating === -1 || app.user_count === -1) {
                 options.url = Config.getAppById + app.id;
                 await axios(options).then(async appRes => {
                     app.rating = appRes["data"]["results"][0]["averageUserRating"] ? appRes["data"]["results"][0]["averageUserRating"] : -1;
@@ -84,9 +83,6 @@ export const getAppInfo = (array) => {
             }
             arrayResult.push(app);
         }
-
-        console.log("18, 19" + JSON.stringify(arrayResult[1].id));
-
         dispatch({ type: "GET_TOP_100_APP_LIST", oringinalListOfTop100: arrayResult });
 
     }

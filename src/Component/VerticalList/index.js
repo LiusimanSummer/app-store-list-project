@@ -37,7 +37,7 @@ export default class VerticalList extends React.Component {
             if (index % 2 === 1) {
                 iconClass = "vertical-item-icon-circle"
             }
-            return <div class="vertical-item-container">
+            return <div key={"vertical-item" + index} class="vertical-item-container">
                 <div class="vertical-item-sub-container">
                     <div class="number">{index + 1}</div>
                     <img alt="icon" class={iconClass} src={item.app_icon} />
