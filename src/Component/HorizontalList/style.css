@@ -1,0 +1,31 @@
+.list-container{
+    width: 100%;
+    vertical-align: top;
+    flex-direction: column;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.item-container{
+    width: 70px;
+    padding: 10px;
+    display: table-cell;
+    vertical-align: text-top;
+    text-align: left;
+}
+
+.name{
+    color: rgb(39, 39, 39);
+    font-size: 12px;
+}
+
+.icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+}
+
+.category{
+    color: #757474;
+    font-size: 12px;
+}
