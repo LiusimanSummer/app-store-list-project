@@ -1,5 +1,8 @@
 const home = (state = [], action) => {
     switch (action.type) {
+        case 'CLEAR':
+            return { ...state, oringinalListOfTop100: action.oringinalListOfTop100, oringinalListOfPopular10: action.oringinalListOfPopular10 };
+
         case 'GET_TOP_100_APP_LIST':
             return { ...state, oringinalListOfTop100: action.oringinalListOfTop100 };
         case 'GET_POP_10_APP_LIST':

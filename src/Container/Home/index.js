@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '../../Component/SearchBar';
 import HorizontalList from '../../Component/HorizontalList';
 import VerticalList from '../../Component/VerticalList';
-import { getTop100AppList, getPopular10, getAppInfo } from '../../actions/home';
+import { getTop100AppList, getPopular10, getAppInfo, clearState } from '../../actions/home';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     getTop100AppList: () => dispatch(getTop100AppList()),
     getPopular10: () => dispatch(getPopular10()),
-    getAppInfo: (array) => dispatch(getAppInfo(array))
+    getAppInfo: (array) => dispatch(getAppInfo(array)),
+    clearState: ()=> dispatch(clearState())
 
 })
 class Home extends React.Component {
@@ -39,6 +40,7 @@ class Home extends React.Component {
     }
 
     componentWillMount = async () => {
+
         window.addEventListener("resize", this.updateDimensions.bind(this));
     }
 
@@ -94,6 +96,8 @@ class Home extends React.Component {
         await this.props.getTop100AppList();
         this.setState({ listOfTop100: this.props.oringinalListOfTop100 });
         await this.props.getAppInfo(this.state.listOfTop100);
+        this.setState({ listOfTop100: this.props.oringinalListOfTop100 });
+
     }
 
     render() {
